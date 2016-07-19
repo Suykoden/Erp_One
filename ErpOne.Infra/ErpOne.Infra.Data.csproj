@@ -52,6 +52,8 @@
     <Compile Include="Contexto\ErpOneContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ClienteRespository.cs" />
+    <Compile Include="Repositories\RepositoryBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ErpOne.Domain\ErpOne.Domain.csproj">
@@ -61,7 +63,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="EntityConfig\" />
-    <Folder Include="Repositories\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
