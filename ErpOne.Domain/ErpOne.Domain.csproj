@@ -31,8 +31,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Entities\Cliente.cs" />
-    <Compile Include="Interfaces\IClienteRepository.cs" />
-    <Compile Include="Interfaces\IRepositoryBase.cs" />
+    <Compile Include="Interfaces\Repositories\IClienteRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IRepositoryBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ErpOne.Domain.Interfaces
+namespace ErpOne.Domain.Interfaces.Repositories
 {
     public interface  IRepositoryBase<TEntity> where TEntity: class
     {

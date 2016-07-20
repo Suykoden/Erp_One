@@ -1,5 +1,5 @@
 ﻿using ErpOne.Domain.Entities;
-using ErpOne.Domain.Interfaces;
+using ErpOne.Domain.Interfaces.Repositories;
 
 
 namespace ErpOne.Infra.Repositories
