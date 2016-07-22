@@ -9,6 +9,7 @@ namespace ErpOne.MVC.Controllers
 {
     public class ClientesController : Controller
     {
+
         // GET: Clientes
         public ActionResult Index()
         {
