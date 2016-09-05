@@ -18,7 +18,12 @@ namespace ErpOne.Infra.Contexto
 
         }
 
+        public DbSet<Administrador> Administrador { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Anunciante> Anunciante { get; set; }
+        public DbSet<Evento> Evento { get; set; }
+        public DbSet<Fotos> Fotos { get; set; }
+        public DbSet<Historico> Historico { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

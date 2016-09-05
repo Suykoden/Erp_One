@@ -30,7 +30,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="EntitiesBase\EntityBase.cs" />
+    <Compile Include="EntitiesBase\EntityWithCode.cs" />
+    <Compile Include="EntitiesBase\EntityWithCodeAndName.cs" />
+    <Compile Include="EntitiesBase\EntityWithName.cs" />
+    <Compile Include="Entities\Administrador.cs" />
+    <Compile Include="Entities\Anunciante.cs" />
     <Compile Include="Entities\Cliente.cs" />
+    <Compile Include="Entities\Evento.cs" />
+    <Compile Include="Entities\Fotos.cs" />
+    <Compile Include="Entities\Historico.cs" />
     <Compile Include="Interfaces\Repositories\IClienteRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepositoryBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
