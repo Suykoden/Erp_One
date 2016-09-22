@@ -18,7 +18,7 @@ namespace ErpOne.MVC.Controllers
 
         public AnunciantesController()
         {
-            this._AnuncianteService = new  ();
+            
             
         }
         public AnunciantesController(IAnuncianteAppService AnuncianteService)
@@ -43,7 +43,7 @@ namespace ErpOne.MVC.Controllers
             Anunciante _anunciante = new Anunciante();
 
             //_anunicante = anunciante;
-            _anunciante.id = Guid.Parse("f39e7794-58de-423a-ab07-a2f3957a0855");
+            _anunciante.Id = Guid.Parse("f39e7794-58de-423a-ab07-a2f3957a0855");
         //    _anunciante.Data_Cadastro = DateTime.Now;
             _anunciante.Ativo = true;
      //       _anunciante.Nome = "rafael";

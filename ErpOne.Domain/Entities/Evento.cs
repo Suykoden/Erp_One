@@ -14,10 +14,11 @@ namespace ErpOne.Domain.Entities
         public string Logradouro { get; set; }
         public string Numero { get; set; }
         public string Cep { get; set; }
-   
+        public DateTime Data_Evento { get; set; }
         public string Descricao { get; set; }
         public Boolean Ativo { get; set; }
-       
+        public Guid AnuncianteId { get; set; }
+        public Anunciante anunciante { get; set; }
     }
 }
 
