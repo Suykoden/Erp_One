@@ -52,6 +52,7 @@
     <Compile Include="Contexto\ErpOneContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AnuncianteRepository.cs" />
     <Compile Include="Repositories\ClienteRespository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
   </ItemGroup>

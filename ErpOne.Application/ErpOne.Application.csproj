@@ -40,8 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnuncianteAppService.cs" />
     <Compile Include="AppServiceBase.Cs" />
     <Compile Include="ClienteAppService.cs" />
+    <Compile Include="Interface\IAnuncianteAppService.cs" />
     <Compile Include="Interface\IAppServiceBase.cs" />
     <Compile Include="Interface\IClienteAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

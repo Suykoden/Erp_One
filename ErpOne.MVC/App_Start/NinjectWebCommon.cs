@@ -71,14 +71,17 @@ namespace ErpOne.MVC.App_Start
             //application
             kernel.Bind(typeof(IAppServiceBase<>)).To(typeof(AppServiceBase<>));
             kernel.Bind<IClienteAppService>().To<ClienteAppService>();
+            kernel.Bind<IAnuncianteAppService>().To<AnuncianteAppService>();
 
             //Domain
             kernel.Bind(typeof(IServicoBase<>)).To(typeof(ServiceBase<>));
             kernel.Bind<IClienteService>().To<ClienteService>();
+            kernel.Bind<IAnuncianteService>().To<AnuncianteService>();
 
-
+            //Repositories
             kernel.Bind(typeof(IRepositoryBase<>)).To(typeof(RepositoryBase<>));
             kernel.Bind<IClienteRepository>().To<ClienteRespository>();
+            kernel.Bind<IAnuncianteRepository>().To<AnuncianteRepository>();
         }        
     }
 }
