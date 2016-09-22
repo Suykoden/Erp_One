@@ -16,7 +16,8 @@ namespace ErpOne.MVC.App_Start
     using Application;
     using Domain.Interfaces.Repositories;
     using Infra.Repositories;
-
+    using System.Web.Http.Dependencies;
+    using Ninject.Syntax;
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -61,6 +62,22 @@ namespace ErpOne.MVC.App_Start
             }
         }
 
+        public static IKernel CreateKernelForWebApi()
+        {
+            var kernel = new StandardKernel();
+            try
+            {
+
+                RegisterServices(kernel);
+                return kernel;
+            }
+            catch
+            {
+                kernel.Dispose();
+                throw;
+            }
+        }
+
         /// <summary>
         /// Load your modules or register your services here!
         /// </summary>
@@ -83,5 +100,57 @@ namespace ErpOne.MVC.App_Start
             kernel.Bind<IClienteRepository>().To<ClienteRespository>();
             kernel.Bind<IAnuncianteRepository>().To<AnuncianteRepository>();
         }        
+    }
+
+    public class NinjectDependencyScope : IDependencyScope
+    {
+        IResolutionRoot resolver;
+
+        public NinjectDependencyScope(IResolutionRoot resolver)
+        {
+            this.resolver = resolver;
+        }
+
+        public object GetService(Type serviceType)
+        {
+            if (resolver == null)
+                throw new ObjectDisposedException("this", "This scope has been disposed");
+
+            return resolver.TryGet(serviceType);
+        }
+
+        public System.Collections.Generic.IEnumerable<object> GetServices(Type serviceType)
+        {
+            if (resolver == null)
+                throw new ObjectDisposedException("this", "This scope has been disposed");
+
+            return resolver.GetAll(serviceType);
+        }
+
+        public void Dispose()
+        {
+            IDisposable disposable = resolver as IDisposable;
+            if (disposable != null)
+                disposable.Dispose();
+
+            resolver = null;
+        }
+    }
+
+    // This class is the resolver, but it is also the global scope
+    // so we derive from NinjectScope.
+    public class NinjectDependencyResolver : NinjectDependencyScope, IDependencyResolver
+    {
+        IKernel kernel;
+
+        public NinjectDependencyResolver(IKernel kernel) : base(kernel)
+        {
+            this.kernel = kernel;
+        }
+
+        public IDependencyScope BeginScope()
+        {
+            return new NinjectDependencyScope(kernel.BeginBlock());
+        }
     }
 }
