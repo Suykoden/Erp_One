@@ -16,11 +16,7 @@ namespace ErpOne.MVC.Controllers
 
         private readonly IAnuncianteAppService _AnuncianteService;
 
-        public AnunciantesController()
-        {
-            
-            
-        }
+
         public AnunciantesController(IAnuncianteAppService AnuncianteService)
         {
             _AnuncianteService = AnuncianteService;
@@ -40,18 +36,10 @@ namespace ErpOne.MVC.Controllers
         // POST: api/Anunciantes
         public void Post([FromBody]Anunciante anunciante)
         {
-            Anunciante _anunciante = new Anunciante();
-
-            //_anunicante = anunciante;
-            _anunciante.Id = Guid.Parse("f39e7794-58de-423a-ab07-a2f3957a0855");
-        //    _anunciante.Data_Cadastro = DateTime.Now;
-            _anunciante.Ativo = true;
-     //       _anunciante.Nome = "rafael";
-            _anunciante.Senha = "123";
-            _anunciante.Email = "dada";
-            //      _anunciante.Codigo = "55555";
-
-            _AnuncianteService.Add(_anunciante);
+            anunciante.Id = Guid.NewGuid();
+            anunciante.Ativo = true;
+            anunciante.Data_Cadastro = DateTime.Now;
+            _AnuncianteService.Add(anunciante);
         }
 
         // PUT: api/Anunciantes/5
